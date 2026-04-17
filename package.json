@@ -1,0 +1,60 @@
+{
+  "name": "react-fetch-kit",
+  "version": "0.1.0",
+  "description": "Batteries-included data fetching hooks for React & Next.js — zero config, maximum power.",
+  "keywords": [
+    "react",
+    "hooks",
+    "fetch",
+    "data-fetching",
+    "axios",
+    "pagination",
+    "debounce",
+    "realtime",
+    "typescript",
+    "nextjs",
+    "toast",
+    "loader",
+    "skeleton"
+  ],
+  "author": "Abdelrahman Kadri",
+  "homepage": "https://github.com/ADRIANO125/react-fetch-kit#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ADRIANO125/react-fetch-kit.git"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup && tsc --emitDeclarationOnly --declaration --declarationDir dist --noEmit false",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}

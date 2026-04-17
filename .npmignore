@@ -1,0 +1,7 @@
+src/
+examples/
+tsup.config.ts
+tsconfig.json
+*.log
+node_modules/
+.git/
