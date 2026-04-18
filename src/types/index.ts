@@ -77,6 +77,7 @@ export interface PaginatedFetchOptions {
   params?: Record<string, unknown>;
   pageParam?: string;
   limitParam?: string;
+  useOffset?: boolean;
 }
 
 export interface PaginatedState<T> {

@@ -23,6 +23,7 @@ export function usePaginatedFetch<T = unknown>(
     params = {},
     pageParam = 'page',
     limitParam = 'limit',
+    useOffset = false,
   } = options;
 
   const [page, setPage] = useState(1);
@@ -43,9 +44,11 @@ export function usePaginatedFetch<T = unknown>(
       abortRef.current?.abort();
       abortRef.current = new AbortController();
 
+      const finalPageVal = useOffset ? (p - 1) * pageSize : p;
+
       const fullUrl = buildUrl(url, {
         ...params,
-        [pageParam]: p,
+        [pageParam]: finalPageVal,
         [limitParam]: pageSize,
       });
 
@@ -68,10 +71,18 @@ export function usePaginatedFetch<T = unknown>(
           resolvedTotalPages = 1;
         } else {
           const res = raw as RawPaginatedResponse;
-          items = ((res.data ?? res.items ?? res.results ?? []) as T[]);
-          resolvedTotal = res.meta?.total ?? res.total ?? items.length;
+          
+          // Smart detection: try known keys first, then look for any array property
+          items = (res.data ?? res.items ?? res.results) as T[];
+          
+          if (!items) {
+            const firstArrayKey = Object.keys(res).find(key => Array.isArray((res as any)[key]));
+            items = (firstArrayKey ? (res as any)[firstArrayKey] : []) as T[];
+          }
+
+          resolvedTotal = res.meta?.total ?? (res as any).total ?? items.length;
           resolvedTotalPages =
-            res.meta?.totalPages ?? res.totalPages ?? Math.ceil(resolvedTotal / pageSize);
+            res.meta?.totalPages ?? (res as any).totalPages ?? (res as any).total_pages ?? Math.ceil(resolvedTotal / pageSize);
         }
 
         setData(items);
