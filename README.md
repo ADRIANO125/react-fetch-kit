@@ -625,7 +625,7 @@ MIT © 2025 [ADRIANO125](https://github.com/ADRIANO125)
 ---
 
 <div align="center">
-  Made with ❤️ by (SKY) Developers, for Developers.
+  Made with ❤️ by (Abdulrahman Kadri) Developer, for Developers.
   <br/>
   <strong>If this saved you time, drop a ⭐ on GitHub!</strong>
 </div>
