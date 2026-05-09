@@ -16,23 +16,6 @@ Zero config. Maximum power. Built-in UI components.
 
 </div>
 
----
-
-## ✨ Why react-fetch-kit?
-
-| Feature | react-fetch-kit | SWR | TanStack Query |
-|---|:---:|:---:|:---:|
-| Zero config | ✅ | ⚠️ | ❌ |
-| Built-in Debounce | ✅ | ❌ | ❌ |
-| Auto AbortController | ✅ | ⚠️ | ⚠️ |
-| Tab-based fetching | ✅ | ❌ | ❌ |
-| Built-in Loader UI | ✅ | ❌ | ❌ |
-| Built-in Toast UI | ✅ | ❌ | ❌ |
-| Built-in Skeleton UI | ✅ | ❌ | ❌ |
-| Bundle size | 🟢 ~6kb | 🟡 ~4kb | 🔴 ~13kb |
-| TypeScript | ✅ | ✅ | ✅ |
-
----
 
 ## 📦 Installation
 
